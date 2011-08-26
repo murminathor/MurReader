@@ -1,0 +1,85 @@
+#!/usr/bin/python -O
+# -*- coding: utf-8; -*-
+#
+# (c) Con Radchenko, 2004
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+try:
+    True, False
+except NameError:
+    (True, False) = (1, 0)
+
+from murreader.config import PROGRAM_NAME, PROGRAM_VERSION, CONFIG_DIR, USER_SKIN_DIR
+
+import locale
+locale.setlocale(locale.LC_ALL, '')
+
+import os, sys, getopt
+
+#os.path.insert( os.path.abspath( '../lib/python/murreader' ) )
+
+try:
+    os.mkdir(CONFIG_DIR)
+    os.mkdir(USER_SKIN_DIR)
+except OSError:
+    pass
+
+def main():
+
+    help = '''%s v.%s
+Usage: %s [options] [file]
+  -F  --fullscreen              run in fullscreen mode
+  -M  --without-menu            hide menu
+  -h  --help                    display this help
+      --version                 show program version and exit''' \
+    % (PROGRAM_NAME, PROGRAM_VERSION, sys.argv[0])
+
+    try:
+        optlist, args = getopt.getopt(sys.argv[1:], 'hFM',
+                                      ['fullscreen', 'without-menu',
+                                       'help', 'version'])
+    except getopt.GetoptError, err:
+        sys.exit('%s: %s\ntry %s --help for more information\n'
+                 % (program_name, err, sys.argv[0]))
+
+    fullscreen = False
+    hidemenu = False
+    for i in optlist:
+        if i[0] in ('--fullscreen', '-F'):
+            fullscreen = True
+        elif i[0] in ('--without-menu', '-M'):
+            hidemenu = True
+        elif i[0] in ('--help', '-h'):
+            print help
+            sys.exit()
+        elif i[0] == '--version':
+            print '%s v. %s' % (PROGRAM_NAME, PROGRAM_VERSION)
+            sys.exit()
+
+    fn = None
+    if args:
+        if os.path.exists(args[0]):
+            fn = os.path.abspath(args[0])
+        else:
+            fn = args[0]
+
+    import gtk
+    from murreader.if_gtk.main import InterfaceMain
+    npbr = InterfaceMain(filename=fn, fullscreen=fullscreen, hidemenu=hidemenu)
+    npbr.window.connect('destroy', lambda w: gtk.main_quit())
+    gtk.main()
+
+main()

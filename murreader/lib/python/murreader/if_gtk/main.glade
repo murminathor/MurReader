@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<glade-interface>
+  <!-- interface-requires gtk+ 2.6 -->
+  <!-- interface-naming-policy toplevel-contextual -->
+  <widget class="GtkWindow" id="main_window">
+    <property name="title" translatable="yes">OrnamentBook</property>
+    <signal name="unrealize" handler="on_main_window_unrealize"/>
+    <child>
+      <widget class="GtkVBox" id="top_vbox">
+        <property name="visible">True</property>
+        <child>
+          <widget class="GtkMenuBar" id="main_menubar">
+            <property name="visible">True</property>
+            <child>
+              <widget class="GtkMenuItem" id="menuitem1">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_File</property>
+                <property name="use_underline">True</property>
+                <child>
+                  <widget class="GtkMenu" id="menuitem1_menu">
+                    <child>
+                      <widget class="GtkImageMenuItem" id="open2">
+                        <property name="label">gtk-open</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_open_activate"/>
+                        <accelerator key="O" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="open_recent_file_menu">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Open recent file</property>
+                        <property name="use_underline">True</property>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkSeparatorMenuItem" id="separatormenuitem1">
+                        <property name="visible">True</property>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkImageMenuItem" id="quit2">
+                        <property name="label">gtk-quit</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_quit_activate"/>
+                        <accelerator key="Q" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkMenuItem" id="go1">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_Go</property>
+                <property name="use_underline">True</property>
+                <child>
+                  <widget class="GtkMenu" id="go1_menu">
+                    <child>
+                      <widget class="GtkMenuItem" id="go_to_position1">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Go to position ...</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_go_to_position_activate"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="content_menu">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Content</property>
+                        <property name="use_underline">True</property>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkMenuItem" id="tools1">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_Tools</property>
+                <property name="use_underline">True</property>
+                <child>
+                  <widget class="GtkMenu" id="tools1_menu">
+                    <child>
+                      <widget class="GtkMenuItem" id="books_manager1">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Books _Manager</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_books_manager_activate"/>
+                        <accelerator key="M" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkMenuItem" id="menuitem3">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_View</property>
+                <property name="use_underline">True</property>
+                <child>
+                  <widget class="GtkMenu" id="menuitem3_menu">
+                    <child>
+                      <widget class="GtkMenuItem" id="background_menu">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Background</property>
+                        <property name="use_underline">True</property>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="hyphenation_menu">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Hyphenation</property>
+                        <property name="use_underline">True</property>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="skins_menu">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Skins</property>
+                        <property name="use_underline">True</property>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="new_skin_menu">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Save skin ...</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_new_skin_activate"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkImageMenuItem" id="properties1">
+                        <property name="label">gtk-preferences</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_properties_activate"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkSeparatorMenuItem" id="separator1">
+                        <property name="visible">True</property>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkImageMenuItem" id="increase_font">
+                        <property name="label">Increase font</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_increase_font_activate"/>
+                        <accelerator key="plus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkImageMenuItem" id="decrease_font">
+                        <property name="label">Decrease font</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_decrease_font_activate"/>
+                        <accelerator key="minus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="fullscreen_menu">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">(Un)Fullscreen</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_fullscreen_activate"/>
+                        <accelerator key="F11" signal="activate"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="hide_menu">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Hide/Show menu</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_hide_menu_activate"/>
+                        <accelerator key="M" signal="activate"/>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>

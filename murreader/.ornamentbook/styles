@@ -1,0 +1,43 @@
+[subtitle]
+font_size = 18
+bold = True
+justify = center
+
+[title]
+font_size = 32
+bold = True
+pixels_above_line = 20
+pixels_below_line = 20
+font_family = Serif
+justify = center
+
+[footnote]
+font_size = 12
+
+[defaultSt]
+pixels_inside_wrap = 6
+
+[stanza]
+right_indent = 40
+left_indent = 70
+font_size = 14
+italic = True
+
+[text_author]
+right_indent = 30
+bold = True
+italic = True
+justify = right
+
+[epigraph]
+left_indent = 60
+italic = True
+
+[strong]
+bold = True
+
+[cite]
+left_indent = 50
+right_indent = 50
+italic = True
+

@@ -1,0 +1,1277 @@
+<?xml version="1.0"?>
+<glade-interface>
+  <!-- interface-requires gtk+ 2.12 -->
+  <!-- interface-naming-policy toplevel-contextual -->
+  <widget class="GtkDialog" id="prop_dialog">
+    <property name="title" translatable="yes">Properties</property>
+    <property name="modal">True</property>
+    <property name="type_hint">normal</property>
+    <signal name="realize" handler="on_prop_dialog_realize"/>
+    <signal name="destroy" handler="on_prop_dialog_destroy"/>
+    <child internal-child="vbox">
+      <widget class="GtkVBox" id="dialog-vbox1">
+        <property name="width_request">320</property>
+        <property name="height_request">560</property>
+        <property name="visible">True</property>
+        <child>
+          <widget class="GtkNotebook" id="notebook1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <child>
+              <widget class="GtkLayout" id="main_layout">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkLabel" id="title_format_label">
+                    <property name="width_request">160</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">&lt;b&gt;Title format:&lt;/b&gt;</property>
+                    <property name="use_markup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="window_title_format_entry">
+                    <property name="width_request">160</property>
+                    <property name="height_request">26</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="has_tooltip">True</property>
+                    <property name="tooltip" translatable="yes">%f - filename
+%a - authors
+%b - book's tiitle
+%p - position
+%t - time</property>
+                    <signal name="changed" handler="on_window_title_format_entry_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">150</property>
+                    <property name="y">7</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="text_single_column_check">
+                    <property name="label" translatable="yes">Single column</property>
+                    <property name="width_request">250</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="draw_indicator">True</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">45</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="text_new_page_check">
+                    <property name="label" translatable="yes">Section begins at new page</property>
+                    <property name="width_request">250</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="draw_indicator">True</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">75</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="status_show_check">
+                    <property name="label" translatable="yes">Show status</property>
+                    <property name="width_request">250</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_status_show_check_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">105</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="window_hide_menu_check">
+                    <property name="label" translatable="yes">Hide menu in fullscreen mode</property>
+                    <property name="width_request">250</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="draw_indicator">True</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">135</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="text_use_background_check">
+                    <property name="label" translatable="yes">Use background</property>
+                    <property name="width_request">250</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_text_use_background_check_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">165</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="text_path_to_background_label">
+                    <property name="width_request">160</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">Path to background:</property>
+                  </widget>
+                  <packing>
+                    <property name="x">30</property>
+                    <property name="y">185</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="text_path_to_background_entry">
+                    <property name="width_request">130</property>
+                    <property name="height_request">26</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="editable">False</property>
+                  </widget>
+                  <packing>
+                    <property name="x">150</property>
+                    <property name="y">187</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="text_select_path_button">
+                    <property name="label" translatable="yes"> ... </property>
+                    <property name="width_request">30</property>
+                    <property name="height_request">26</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="use_underline">True</property>
+                    <signal name="clicked" handler="on_text_select_path_button_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="x">280</property>
+                    <property name="y">187</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="text_bg_color_label">
+                    <property name="width_request">160</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">Background color:</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">225</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="text_bg_color_button">
+                    <property name="label">gtk-select-color</property>
+                    <property name="width_request">150</property>
+                    <property name="height_request">26</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="use_stock">True</property>
+                    <signal name="clicked" handler="on_text_bg_color_button_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="x">160</property>
+                    <property name="y">228</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="text_use_gradient_check">
+                    <property name="label" translatable="yes">Gradient:</property>
+                    <property name="width_request">160</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_gradient_check_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">255</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="text_gradient_color_button">
+                    <property name="label">gtk-select-color</property>
+                    <property name="width_request">150</property>
+                    <property name="height_request">26</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="use_stock">True</property>
+                    <signal name="clicked" handler="on_text_gradient_color_button_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="x">160</property>
+                    <property name="y">258</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkDrawingArea" id="text_gradient_drawingarea">
+                    <property name="width_request">260</property>
+                    <property name="height_request">130</property>
+                    <property name="visible">True</property>
+                    <signal name="expose_event" handler="on_text_gradient_drawingarea_expose_event"/>
+                  </widget>
+                  <packing>
+                    <property name="x">30</property>
+                    <property name="y">287</property>
+                  </packing>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="main_label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Main</property>
+              </widget>
+              <packing>
+                <property name="tab_fill">False</property>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLayout" id="text_layout">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkLabel" id="text_margin_top_label">
+                    <property name="width_request">160</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">Top margin:</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="text_margin_top_spin">
+                    <property name="width_request">60</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">3</property>
+                    <property name="width_chars">3</property>
+                    <property name="xalign">1</property>
+                    <property name="shadow_type">none</property>
+                    <property name="adjustment">20 0 100 1 0 0</property>
+                    <property name="climb_rate">1</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_spin_value_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">250</property>
+                    <property name="y">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="text_margin_bottom_label">
+                    <property name="width_request">160</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">Bottom margin:</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">35</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="text_margin_bottom_spin">
+                    <property name="width_request">60</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">3</property>
+                    <property name="width_chars">3</property>
+                    <property name="xalign">1</property>
+                    <property name="adjustment">20 0 100 1 0 0</property>
+                    <property name="climb_rate">1</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_spin_value_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">250</property>
+                    <property name="y">35</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="text_margin_left_label">
+                    <property name="width_request">160</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">Left margin:</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">65</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="text_margin_left_spin">
+                    <property name="width_request">60</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">3</property>
+                    <property name="width_chars">3</property>
+                    <property name="xalign">1</property>
+                    <property name="adjustment">20 0 100 1 0 0</property>
+                    <property name="climb_rate">1</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_spin_value_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">250</property>
+                    <property name="y">65</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="text_margin_right_label">
+                    <property name="width_request">160</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">Right margin:</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">95</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="text_spaces_between_column_label">
+                    <property name="width_request">160</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">Spaces between column:</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">125</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="text_spaces_between_column_spin">
+                    <property name="width_request">60</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">3</property>
+                    <property name="width_chars">3</property>
+                    <property name="xalign">1</property>
+                    <property name="adjustment">20 0 100 1 0 0</property>
+                    <property name="climb_rate">1</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_spin_value_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">250</property>
+                    <property name="y">125</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="text_margin_right_spin">
+                    <property name="width_request">60</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">3</property>
+                    <property name="width_chars">3</property>
+                    <property name="xalign">1</property>
+                    <property name="adjustment">20 0 100 1 0 0</property>
+                    <property name="climb_rate">1</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_spin_value_change"/>
+                  </widget>
+                  <packing>
+                    <property name="x">250</property>
+                    <property name="y">95</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="text_label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Text</property>
+              </widget>
+              <packing>
+                <property name="position">1</property>
+                <property name="tab_fill">False</property>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLayout" id="status_layout">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkButton" id="status_color_button">
+                    <property name="label">gtk-select-color</property>
+                    <property name="width_request">150</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="use_stock">True</property>
+                    <signal name="clicked" handler="on_status_color_button_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="x">160</property>
+                    <property name="y">65</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="status_color_label">
+                    <property name="width_request">150</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">Color:</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">65</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="status_font_button">
+                    <property name="label">gtk-select-font</property>
+                    <property name="width_request">150</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="use_stock">True</property>
+                    <signal name="clicked" handler="on_status_font_button_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="x">160</property>
+                    <property name="y">35</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="status_font_label">
+                    <property name="width_request">150</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">Font:</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">35</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="status_clock_x_spin">
+                    <property name="width_request">60</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">3</property>
+                    <property name="width_chars">3</property>
+                    <property name="xalign">1</property>
+                    <property name="adjustment">1 0 1000 1 0 0</property>
+                    <property name="climb_rate">1</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_spin_value_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">235</property>
+                    <property name="y">185</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="status_clock_x_label">
+                    <property name="width_request">150</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">Clock - X position:</property>
+                  </widget>
+                  <packing>
+                    <property name="x">25</property>
+                    <property name="y">185</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="status_percent_x_spin">
+                    <property name="width_request">60</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">3</property>
+                    <property name="width_chars">3</property>
+                    <property name="xalign">1</property>
+                    <property name="adjustment">1 0 1000 1 0 0</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_spin_value_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">235</property>
+                    <property name="y">125</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="status_percent_x_label">
+                    <property name="width_request">150</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">Percent - X position:</property>
+                  </widget>
+                  <packing>
+                    <property name="x">25</property>
+                    <property name="y">125</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="status_y_spin">
+                    <property name="width_request">55</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">3</property>
+                    <property name="width_chars">3</property>
+                    <property name="xalign">1</property>
+                    <property name="adjustment">1 0 100 1 0 0</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_spin_value_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">250</property>
+                    <property name="y">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="status_clock_show_check">
+                    <property name="label" translatable="yes">Show clock</property>
+                    <property name="width_request">150</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">160</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="status_percent_show_check">
+                    <property name="label" translatable="yes">Show percent</property>
+                    <property name="width_request">150</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">100</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="status_y_label">
+                    <property name="width_request">160</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">Y position:</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkHSeparator" id="status_percent_show_hseparator">
+                    <property name="width_request">180</property>
+                    <property name="height_request">10</property>
+                    <property name="visible">True</property>
+                    <property name="sensitive">False</property>
+                  </widget>
+                  <packing>
+                    <property name="x">120</property>
+                    <property name="y">110</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkHSeparator" id="status_show_clock_hseparator">
+                    <property name="width_request">180</property>
+                    <property name="height_request">10</property>
+                    <property name="visible">True</property>
+                    <property name="sensitive">False</property>
+                  </widget>
+                  <packing>
+                    <property name="x">120</property>
+                    <property name="y">170</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="status_label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Status</property>
+              </widget>
+              <packing>
+                <property name="position">2</property>
+                <property name="tab_fill">False</property>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLayout" id="styles_layout">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkLabel" id="styles_style_label">
+                    <property name="width_request">100</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="ypad">4</property>
+                    <property name="label" translatable="yes">Style:</property>
+                    <property name="use_markup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkComboBox" id="styles_style_list">
+                    <property name="width_request">150</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="active">1</property>
+                    <property name="items" translatable="yes">Paragraph
+Title
+Subtitle
+Epigraph
+Cite
+Stanza
+Footnote
+Hyperlink
+Text_author
+Strong
+Emphasis</property>
+                    <signal name="changed" handler="on_styles_style_list_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">150</property>
+                    <property name="y">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="styles_font_label">
+                    <property name="width_request">100</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="label" translatable="yes">&lt;b&gt;Font:&lt;/b&gt;</property>
+                    <property name="use_markup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">35</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkHSeparator" id="styles_font_hseparator">
+                    <property name="width_request">240</property>
+                    <property name="height_request">10</property>
+                    <property name="visible">True</property>
+                  </widget>
+                  <packing>
+                    <property name="x">60</property>
+                    <property name="y">45</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="styles_font_check">
+                    <property name="label" translatable="yes">Font:</property>
+                    <property name="width_request">155</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_styles_font_check_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">20</property>
+                    <property name="y">55</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="styles_font_button">
+                    <property name="label">gtk-select-font</property>
+                    <property name="width_request">130</property>
+                    <property name="height_request">26</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="use_stock">True</property>
+                    <signal name="clicked" handler="on_styles_font_button_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="x">170</property>
+                    <property name="y">55</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="styles_line_label">
+                    <property name="width_request">100</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="label" translatable="yes">&lt;b&gt;Line:&lt;/b&gt;</property>
+                    <property name="use_markup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">195</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkHSeparator" id="styles_line_hseparator">
+                    <property name="width_request">240</property>
+                    <property name="height_request">10</property>
+                    <property name="visible">True</property>
+                  </widget>
+                  <packing>
+                    <property name="x">60</property>
+                    <property name="y">205</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="styles_pixels_above_line_check">
+                    <property name="label" translatable="yes">Pixels above line:</property>
+                    <property name="width_request">160</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_styles_check_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">20</property>
+                    <property name="y">299</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="styles_pixels_above_line_spin">
+                    <property name="width_request">55</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">3</property>
+                    <property name="width_chars">3</property>
+                    <property name="xalign">1</property>
+                    <property name="adjustment">0 -200 200 1 0 0</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_style_spin_value_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">245</property>
+                    <property name="y">299</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="styles_pixels_below_line_check">
+                    <property name="label" translatable="yes">Pixels below line:</property>
+                    <property name="width_request">160</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_styles_check_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">20</property>
+                    <property name="y">327</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="styles_pixels_below_line_spin">
+                    <property name="width_request">55</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">3</property>
+                    <property name="width_chars">3</property>
+                    <property name="xalign">1</property>
+                    <property name="adjustment">0 -200 200 1 0 0</property>
+                    <property name="climb_rate">1</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_style_spin_value_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">245</property>
+                    <property name="y">327</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="styles_first_line_indent_check">
+                    <property name="label" translatable="yes">First line indent:</property>
+                    <property name="width_request">160</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_styles_check_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">20</property>
+                    <property name="y">215</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="styles_first_line_indent_spin">
+                    <property name="width_request">55</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">4</property>
+                    <property name="width_chars">4</property>
+                    <property name="xalign">1</property>
+                    <property name="adjustment">0 -200 200 1 0 0</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_style_spin_value_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">245</property>
+                    <property name="y">215</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="styles_left_indent_check">
+                    <property name="label" translatable="yes">Left indent:</property>
+                    <property name="width_request">160</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_styles_check_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">20</property>
+                    <property name="y">243</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="styles_left_indent_spin">
+                    <property name="width_request">55</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">4</property>
+                    <property name="width_chars">4</property>
+                    <property name="xalign">1</property>
+                    <property name="adjustment">0 -200 200 1 0 0</property>
+                    <property name="climb_rate">1</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_style_spin_value_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">245</property>
+                    <property name="y">243</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="styles_right_indent_check">
+                    <property name="label" translatable="yes">Right indent:</property>
+                    <property name="width_request">160</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_styles_check_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">20</property>
+                    <property name="y">271</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="styles_right_indent_spin">
+                    <property name="width_request">55</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">4</property>
+                    <property name="width_chars">4</property>
+                    <property name="xalign">1</property>
+                    <property name="adjustment">0 -200 200 1 0 0</property>
+                    <property name="climb_rate">1</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_style_spin_value_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">245</property>
+                    <property name="y">271</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="styles_pixels_inside_wrap_check">
+                    <property name="label" translatable="yes">Pixels inside wrap:</property>
+                    <property name="width_request">160</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_styles_check_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">20</property>
+                    <property name="y">355</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkSpinButton" id="styles_pixels_inside_wrap_spin">
+                    <property name="width_request">55</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">3</property>
+                    <property name="width_chars">3</property>
+                    <property name="xalign">1</property>
+                    <property name="adjustment">0 -200 200 1 0 0</property>
+                    <property name="climb_rate">1</property>
+                    <property name="numeric">True</property>
+                    <signal name="value_changed" handler="on_style_spin_value_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="x">245</property>
+                    <property name="y">355</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="styles_color_check">
+                    <property name="label" translatable="yes">Foreground color:</property>
+                    <property name="width_request">155</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_styles_color_check_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">20</property>
+                    <property name="y">111</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="styles_color_setter">
+                    <property name="label">gtk-select-color</property>
+                    <property name="width_request">130</property>
+                    <property name="height_request">26</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="use_stock">True</property>
+                    <signal name="clicked" handler="on_styles_color_setter_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="x">170</property>
+                    <property name="y">111</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="styles_misc_label">
+                    <property name="width_request">100</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="label" translatable="yes">&lt;b&gt;Misc:&lt;/b&gt;</property>
+                    <property name="use_markup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="x">10</property>
+                    <property name="y">383</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkHSeparator" id="styles_misc_hseparator">
+                    <property name="width_request">240</property>
+                    <property name="height_request">10</property>
+                    <property name="visible">True</property>
+                  </widget>
+                  <packing>
+                    <property name="x">60</property>
+                    <property name="y">393</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="styles_hyphenate_check">
+                    <property name="label" translatable="yes">Hyphenate:</property>
+                    <property name="width_request">160</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="xalign">0.49000000953674316</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_styles_hyphenate_check_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">20</property>
+                    <property name="y">403</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkToggleButton" id="styles_hyphenate_setter">
+                    <property name="label" translatable="yes">No</property>
+                    <property name="width_request">55</property>
+                    <property name="height_request">26</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="use_underline">True</property>
+                    <signal name="toggled" handler="on_styles_hyphenate_setter_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">245</property>
+                    <property name="y">403</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="styles_justify_check">
+                    <property name="label" translatable="yes">Justify:</property>
+                    <property name="width_request">160</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="border_width">4</property>
+                    <property name="use_underline">True</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="on_styles_justify_check_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="x">20</property>
+                    <property name="y">431</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkComboBox" id="styles_justify_list">
+                    <property name="width_request">130</property>
+                    <property name="height_request">26</property>
+                    <property name="visible">True</property>
+                    <property name="sensitive">False</property>
+                    <property name="can_focus">True</property>
+                    <property name="active">0</property>
+                    <property name="items" translatable="yes">left
+right
+center
+fill</property>
+                  </widget>
+                  <packing>
+                    <property name="x">170</property>
+                    <property name="y">431</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkAccelLabel" id="styles_font_description_label">
+                    <property name="width_request">260</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Font description</property>
+                  </widget>
+                  <packing>
+                    <property name="x">30</property>
+                    <property name="y">83</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="styles_label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Styles</property>
+              </widget>
+              <packing>
+                <property name="position">3</property>
+                <property name="tab_fill">False</property>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <widget class="GtkHButtonBox" id="dialog-action_area1">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+            <child>
+              <widget class="GtkButton" id="apply_button">
+                <property name="label">gtk-apply</property>
+                <property name="response_id">-10</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="can_default">True</property>
+                <property name="receives_default">False</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_apply_clicked"/>
+              </widget>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkButton" id="close_button">
+                <property name="label">gtk-close</property>
+                <property name="response_id">-7</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="can_default">True</property>
+                <property name="receives_default">False</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_close_clicked"/>
+              </widget>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>
